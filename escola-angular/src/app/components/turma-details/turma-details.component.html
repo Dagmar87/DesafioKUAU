@@ -1,0 +1,76 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTurma.id">
+    <h4>Turma</h4>
+    <div>
+      <label><strong>Nome:</strong></label> {{ currentTurma.nome }}
+    </div>
+    <div>
+      <label><strong>Serie:</strong></label>
+      {{ currentTurma.serie }}
+    </div>
+    <a
+      class="badge badge-warning"
+      routerLink="/escola/turmas/{{ currentTurma.id }}"
+    >
+      Editar
+    </a>
+    <a
+      class="badge badge-warning"
+      routerLink="/escola/turmas/{{ currentTurma.id }}/alunos"
+    >
+      List.Alunos
+    </a>
+    <a
+      class="badge badge-warning"
+      routerLink="/escola/turmas/{{ currentTurma.id }}/addAlunos"
+    >
+      Adic.Alunos
+    </a>
+  </div>
+  <div *ngIf="!currentTurma">
+    <br />
+    <p>Por favor, clique em uma turma...</p>
+  </div>
+</div>
+<ng-template #editable>
+  <div *ngIf="currentTurma.id" class="edit-form">
+    <h4>Turma</h4>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          [(ngModel)]="currentTurma.nome"
+          name="nome"
+        />
+      </div>
+      <div class="form-group">
+        <label for="serie">Serie</label>
+        <input
+          type="text"
+          class="form-control"
+          id="serie"
+          [(ngModel)]="currentTurma.serie"
+          name="serie"
+        />
+      </div>
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteTurma()">
+      Excluir
+    </button>
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTurma()"
+    >
+      Atualizar
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentTurma.id">
+    <br />
+    <p>Não é possível acessar esta turma...</p>
+  </div>
+</ng-template>

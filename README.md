@@ -151,7 +151,22 @@ URL do Requisito: http://localhost:8000/api/readAluno.php
 - cd escola-php-rest-mysql
 - php -S localhost:8000
 
+### Etapa 2: Front-End
 
+### Tecnologias Utilizadas
+
+- Angular 13
+- API REST
+- Bootstrap 5.2.0
+
+### Instruções de Acesso
+
+#### Acesso para rodar o projeto Angular:
+
+- cd escola-angular
+- ng serve --port 8000
+
+### 
 
 ​		
 
